@@ -1,28 +1,16 @@
+# Bonus 
 # get input
-user_input = input('Enter a string of only x\'s and y\'s: ')
+user_input = input('Enter a string : ')
 
-# count the number of x's and y's
-x_count = ''
-y_count = ''
-
+counts = dict()
 for chars in user_input:
-    if chars == 'x':
-        x_count += chars
-    else:
-        y_count += chars
-    
-isBalance = len(x_count) == len(y_count)
+    counts[chars] = counts.get(chars,0) + 1
 
-def check_balance():
-    if isBalance:
-        return True
-    else:
-        return False
+value_count = []
+for value in counts.values():
+    value_count.append(value)
 
-result = check_balance()
-print(result)
-
-
-
-# x_count = user_input.count('x')
-# y_count = user_input.count('y')
+if value_count[1:] == value_count[:-1]:
+    print('true')
+else:
+    print('false')
